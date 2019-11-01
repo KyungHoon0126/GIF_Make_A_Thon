@@ -26,6 +26,7 @@ public class GroupFragment extends Fragment {
         GridView gridView = v.findViewById(R.id.post_scroll);
         gridView.setAdapter(adapter);
         for(int i = 0; i < 3; i++) adapter.add();
+        adapter.add();
         return v;
     }
 }

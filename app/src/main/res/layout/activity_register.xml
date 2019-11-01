@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/username_input_background"
     tools:context=".RegisterActivity">
 
     <EditText
@@ -12,13 +13,14 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="이름을 입력해주세요."
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
         android:inputType="textPersonName"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/Ok"
@@ -26,6 +28,7 @@
         android:layout_height="wrap_content"
         android:alpha="0"
         android:text="@android:string/ok"
+        android:background="@drawable/complete_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -41,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Ok"
         app:layout_constraintStart_toStartOf="@+id/Ok"
         app:layout_constraintTop_toTopOf="@+id/Ok"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+        app:srcCompat="@drawable/complete_button" />
 
     <TextView
         android:id="@+id/UserNameTV"

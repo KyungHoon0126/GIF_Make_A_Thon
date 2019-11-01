@@ -21,6 +21,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.players.gif.DataManagers.UserInfo;
 import com.players.gif.DataManagers.Utils;
 import com.players.gif.HttpManagers.HttpDataManager;
@@ -89,8 +90,8 @@ public class LoginActivity extends AppCompatActivity {
                             boolean status = obj.getBoolean("status");
                             //google_account
                             if (!status) {
-                                Intent intent = new Intent(this, MainActivity.class);
-                                intent.putExtra(MainActivity.GOOGLE_ACCOUNT, account);
+                                Intent intent = new Intent(this, NavigationC.class);
+                                intent.putExtra(NavigationC.GOOGLE_ACCOUNT, account);
                                 startActivity(intent);
                             } else {
                                 Intent intent = new Intent(this, RegisterActivity.class);

@@ -1,12 +1,14 @@
-package com.players.gif;
+/*package com.players.gif;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.GridView;
-import android.widget.Toolbar;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.common.util.JsonUtils;
+import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.players.gif.DataManagers.UserInfo;
 import com.players.gif.Fragments.GroupFragment;
@@ -28,10 +31,15 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
+    private DrawerLayout mDrawer;
+    private Toolbar toolbar;
+    private NavigationView nvDrawer;
 
+    // Make sure to be using androidx.appcompat.app.ActionBarDrawerToggle version.
+    private ActionBarDrawerToggle drawerToggle;
     /*private FragmentManager fragmentManager = getSupportFragmentManager();
     private TestFragment testFragment = new TestFragment();
-    private DashboardFragment dashboardFragment = new DashboardFragment();*/
+    private DashboardFragment dashboardFragment = new DashboardFragment();
     public static final String GOOGLE_ACCOUNT = "google_account";
     private final String TAG = "[MainActivity]";
     private FragmentManager fragmentManager = getSupportFragmentManager();
@@ -68,10 +76,15 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }).start();
+        // Set a Toolbar to replace the ActionBar.
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragments, fragment).commitAllowingStateLoss();
+        // This will display an Up icon (<-), we will replace it with hamburger later
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Find our drawer view
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         /*GoogleSignInAccount account = getIntent().getParcelableExtra(GOOGLE_ACCOUNT);
         findViewById(R.id.signout).setOnClickListener((view)->{
             Intent intent = new Intent(this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(LoginActivity.wantSignOut, true);
@@ -85,10 +98,9 @@ public class MainActivity extends AppCompatActivity {
 
         listView.setAdapter(adapter);
 
-        for(int i = 0; i < 100; i++) adapter.addItem();*/
+        for(int i = 0; i < 100; i++) adapter.addItem();
         //startActivity(new Intent(this, PostActivity.class));
     }
-
 
         /*BottomNavigationView navView = findViewById(R.id.nav_view);
 
@@ -116,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);*/
+        NavigationUI.setupWithNavController(navView, navController);
         public int getStatusBarHeight() {
             int result = 0;
             int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -125,4 +137,4 @@ public class MainActivity extends AppCompatActivity {
             }
             return result;
         }
-}
+}*/

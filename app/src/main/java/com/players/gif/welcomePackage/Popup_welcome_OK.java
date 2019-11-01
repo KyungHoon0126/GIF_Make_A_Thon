@@ -3,12 +3,21 @@ package com.players.gif.welcomePackage;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Window;
 import android.view.animation.AnimationUtils;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.players.gif.DataManagers.UserInfo;
+import com.players.gif.HttpManagers.HttpDataManager;
+import com.players.gif.IMSIDATAS;
 import com.players.gif.R;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class Popup_welcome_OK extends Activity {
     @Override
@@ -18,8 +27,9 @@ public class Popup_welcome_OK extends Activity {
         setContentView(R.layout.welcome_popup);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
         findViewById(R.id.popup).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.size_up));
+
         new Thread(()->{try{
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             Intent i = new Intent();
             i.putExtra("result", (GoogleSignInAccount)getIntent().getParcelableExtra("google_account"));
             setResult(RESULT_OK, i);

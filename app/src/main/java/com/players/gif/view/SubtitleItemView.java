@@ -24,8 +24,8 @@ public class SubtitleItemView extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.subtitle, this, true);
 
-        name = findViewById(R.id.textView1);
-        inside = findViewById(R.id.textView2);
+        name = findViewById(R.id.username);
+        inside = findViewById(R.id.inside);
 
     }
     public void setName(String name){

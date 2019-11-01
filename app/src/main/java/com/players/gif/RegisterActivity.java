@@ -88,18 +88,17 @@ public class RegisterActivity extends AppCompatActivity {
             if(complete) return;
             if(isError) return;
             GoogleSignInAccount account = getIntent().getParcelableExtra(GOOGLE_ACCOUNT);
-            Handler h = new Handler();
+            setOkText(isCompleted, "데이터를 처리하는중 입니다...");
+            complete = true;
+            JSONObject user = new JSONObject();
             new Thread(()->{
                 try{
-                    h.post(()->setOkText(isCompleted, "데이터를 처리하는중 입니다..."));
-                    complete = true;
-                    JSONObject user = new JSONObject();
                     user.put("email", account.getEmail());
                     user.put("google", true);
                     user.put("username", text.getText());
-                    JSONObject data = HttpDataManager.postData("http://danny-dataserver.kro.kr:8080/registerUser", user);
-                    Intent intent = new Intent(this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.putExtra(MainActivity.GOOGLE_ACCOUNT, account);
+                    JSONObject data = HttpDataManager.postData("http://192.168.43.249:8080/registerUser", user);
+                    Intent intent = new Intent(this, NavigationC.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra(NavigationC.GOOGLE_ACCOUNT, account);
                     startActivity(intent);
                     finish();
                 }catch(Exception e){
