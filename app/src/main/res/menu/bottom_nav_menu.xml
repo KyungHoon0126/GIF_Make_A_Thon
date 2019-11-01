@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_test"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_test"/>
-
+        android:id="@+id/homepage"
+        android:icon="@drawable/bottom1"
+        android:title="asv"/>
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard"/>
+        android:id="@+id/secpage"
+        android:icon="@drawable/bottom2"
+        android:title="asvasvasv"/>
+    <item
+        android:id="@+id/thirpage"
+        android:icon="@drawable/bottom3"
+        android:title="basb"/>
+    <item
+        android:id="@+id/fourpage"
+        android:icon="@drawable/bottom4"
+        android:title="basb"/>
 </menu>

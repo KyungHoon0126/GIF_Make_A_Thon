@@ -11,14 +11,14 @@
         android:id="@+id/popup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/welcome"
+        android:background="@drawable/check_error_popup"
         android:gravity="center"
         android:paddingTop="100dp">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/check_button"
+            android:background="@drawable/check_box_no"
             style="?android:attr/borderlessButtonStyle"/>
     </RelativeLayout>
 

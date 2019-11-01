@@ -1,6 +1,7 @@
 package com.players.gif.welcomePackage;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -10,18 +11,19 @@ import android.view.animation.AnimationUtils;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.players.gif.R;
 
-public class Popup_welcome_OK extends Activity {
+public class Popup_welcome_NO extends AppCompatActivity {
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.welcome_popup);
+        setContentView(R.layout.activity_popup_welcome__no);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
         findViewById(R.id.popup).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.size_up));
         new Thread(()->{try{
             Thread.sleep(1000);
             Intent i = new Intent();
-            i.putExtra("result", (GoogleSignInAccount)getIntent().getParcelableExtra("google_account"));
+            i.putExtra("result", "ERROR");
             setResult(RESULT_OK, i);
             finish();}catch (Exception e){e.printStackTrace();}}).start();
     }

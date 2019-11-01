@@ -7,19 +7,26 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".New_Login_Register_Request.activity_newLogin"></activity>
+        <activity
+            android:name=".Navigation"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+        <activity android:name=".welcomePackage.Popup_welcome_NO" />
+        <activity android:name=".New_Login_Register_Request.activity_newLogin" />
         <activity android:name=".PostActivity" />
         <activity android:name=".page.BoardActivity" />
         <activity android:name=".New_Login_Register_Request.activity_newRegister" />
         <activity android:name=".New_Login_Register_Request.NewMainActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".welcomePackage.Popup_welcome_OK" android:theme="@android:style/Theme.Holo.Dialog"/>
+        <activity
+            android:name=".welcomePackage.Popup_welcome_OK"
+            android:theme="@android:style/Theme.Holo.Dialog" />
         <activity
             android:name=".MainActivity"
             android:label="NavigationViewTest" />
