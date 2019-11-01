@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/loginback"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        app:layout_constraintVertical_bias="0.596">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_top"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/idbox"
+            android:text="ASGASGSAGAS"
+            android:gravity="center_vertical"
+            android:textSize="14dp"
+            android:textColor="#B7FFFFFF"
+            android:paddingStart="10dp"
+            android:paddingTop="15dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pwbox"
+            android:textSize="14dp"
+            android:text="ASGSAGSAG"
+            android:textColor="#B7FFFFFF"
+            android:paddingStart="10dp"
+            android:paddingTop="15dp"
+            android:inputType="textPassword"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="10dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/logbutt"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="5dp"/>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="142dp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
