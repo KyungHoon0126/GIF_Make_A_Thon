@@ -6,4 +6,6 @@
     <color name="colorWarning">#ED00CB</color>
     <color name="colorGray">#8C8C8C</color>
     <color name="colorLogin">#b20c72</color>
+    <color name="transparent">#00000000</color>
+    <color name="welcome_box_back">#99000000</color>
 </resources>

@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.players.gif.DataManagers.UserInfo;
 import com.players.gif.DataManagers.Utils;
 import com.players.gif.HttpManagers.HttpDataManager;
+import com.players.gif.welcomePackage.Popup_welcome_OK;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -75,32 +76,38 @@ public class LoginActivity extends AppCompatActivity {
                         Log.w("ERROR", "SIGN IN RESULT FAILD CODE = " + e.getStatusCode());
                     }
                     break;
+                case 102:
+                    Handler h = new Handler();
+                    new Thread(()-> {
+                        try{
+                            GoogleSignInAccount account = data.getParcelableExtra("result");
+                            JSONObject datac = new JSONObject();
+                            datac.put("email", account.getEmail());
+                            JSONObject obj = HttpDataManager.postData("http://192.168.43.249:8080/canUseEmail", datac);
+                            System.out.println(account.getServerAuthCode());
+                            UserInfo.getInstance().setEmail(account.getEmail());
+                            boolean status = obj.getBoolean("status");
+                            //google_account
+                            if (!status) {
+                                Intent intent = new Intent(this, MainActivity.class);
+                                intent.putExtra(MainActivity.GOOGLE_ACCOUNT, account);
+                                startActivity(intent);
+                            } else {
+                                Intent intent = new Intent(this, RegisterActivity.class);
+                                intent.putExtra(RegisterActivity.GOOGLE_ACCOUNT, account);
+                                startActivity(intent);
+                            }
+                            h.post(()->finish());
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }).start();
             }
     }
     private void onLoggedIn(GoogleSignInAccount account){
-        Handler h = new Handler();
-        new Thread(()-> {
-            try{
-                JSONObject data = new JSONObject();
-                data.put("email", account.getEmail());
-                JSONObject obj = HttpDataManager.postData("http://192.168.43.249:8080/canUseEmail", data);
-                System.out.println(account.getServerAuthCode());
-                UserInfo.getInstance().setEmail(account.getEmail());
-                boolean status = obj.getBoolean("status");
-                if (!status) {
-                    Intent intent = new Intent(this, MainActivity.class);
-                    intent.putExtra(MainActivity.GOOGLE_ACCOUNT, account);
-                    startActivity(intent);
-                } else {
-                    Intent intent = new Intent(this, RegisterActivity.class);
-                    intent.putExtra(RegisterActivity.GOOGLE_ACCOUNT, account);
-                    startActivity(intent);
-                }
-                h.post(()->finish());
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }).start();
+        Intent i = new Intent(this, Popup_welcome_OK.class);
+        i.putExtra("google_account", account);
+        startActivityForResult(i, 102);
     }
     @Override
     public void onStart(){

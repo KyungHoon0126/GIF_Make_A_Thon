@@ -19,6 +19,7 @@
         <activity android:name=".New_Login_Register_Request.activity_newRegister" />
         <activity android:name=".New_Login_Register_Request.NewMainActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".welcomePackage.Popup_welcome_OK" android:theme="@android:style/Theme.Holo.Dialog"/>
         <activity
             android:name=".MainActivity"
             android:label="NavigationViewTest" />
