@@ -1,4 +1,4 @@
-package New_Login_Register_Request;
+package com.players.gif.New_Login_Register_Request;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
